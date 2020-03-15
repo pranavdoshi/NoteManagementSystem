@@ -8,10 +8,16 @@
 
     <div class="form-group">
       <input type="text" name="title" class="form-control" placeholder="Note Title"/>
+      @if ($errors->has('title'))
+           <span class="text-danger">{{ $errors->first('title') }}</span>
+       @endif
     </div>
 
     <div class="form-group">
       <textarea name="description" class="form-control" placeholder="Note Description"></textarea>
+      @if ($errors->has('description'))
+           <span class="text-danger">{{ $errors->first('description') }}</span>
+       @endif
     </div>
 
 

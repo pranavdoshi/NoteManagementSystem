@@ -21,6 +21,10 @@ class NotesController extends Controller
 
   public function create(Request $request)
   {
+    $this->validate($request, [
+            'description' => 'required',
+            'title'=>'required'
+        ]);
     $notes = new Notes();
     $notes->description = $request->description;
     $notes->title = $request->title;
@@ -49,6 +53,10 @@ class NotesController extends Controller
     }
     else
     {
+      $this->validate($request, [
+               'description' => 'required',
+               'title'=>'required'
+           ]);
       $notes->description = $request->description;
       $notes->title = $request->title;
       $notes->save();
